@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createClient } from '@supabase/supabase-js';
-import { Heart, CalendarDays, BookHeart, MessageCircle, Sparkles, Link2, LogOut, Plus, Send, LockKeyhole, Users, Smile, CloudHeart } from 'lucide-react';
+import { Heart, CalendarDays, BookHeart, MessageCircle, Sparkles, Link2, LogOut, Plus, Send, LockKeyhole, Users, Smile, House } from 'lucide-react';
 import './style.css';
 
 const url = import.meta.env.VITE_SUPABASE_URL;
@@ -131,7 +131,7 @@ function App() {
     {tab==='dates'&&<><div className="section-heading"><h2>重要的日子</h2><span>SAVE THE DATE</span></div><section className="panel stack"><div className="date-icon"><CalendarDays size={25}/></div><h3>你们的纪念日</h3><p className="muted">把相遇的日子，好好收藏起来。</p><form onSubmit={saveAnniversary} className="stack"><label>开始日期<input type="date" value={anniversary} onChange={e=>setAnniversary(e.target.value)}/></label><button className="primary">保存日期</button></form>{daysTogether!==null&&<p className="date-count">已经一起走过 <strong>{daysTogether}</strong> 天</p>}</section></>}
     {tab==='chat'&&<section className="panel coming"><MessageCircle size={35}/><h2>聊天功能，下一站见</h2><p className="muted">第一版先把账号、绑定、心情和共同日记做好。实时聊天会作为下一阶段加入。</p></section>}
     <div className="privacy-note"><LockKeyhole size={14}/> 这是你们的双人空间，请只分享愿意让对方看到的内容。</div>
-    </main><nav className="bottom-nav"><button className={tab==='home'?'active':''} onClick={()=>setTab('home')}><CloudHeart/><span>首页</span></button><button className={tab==='journal'?'active':''} onClick={()=>setTab('journal')}><BookHeart/><span>日记</span></button><button className={tab==='dates'?'active':''} onClick={()=>setTab('dates')}><CalendarDays/><span>纪念日</span></button><button className={tab==='chat'?'active':''} onClick={()=>setTab('chat')}><MessageCircle/><span>聊天</span></button></nav></div>;
+    </main><nav className="bottom-nav"><button className={tab==='home'?'active':''} onClick={()=>setTab('home')}><House/><span>首页</span></button><button className={tab==='journal'?'active':''} onClick={()=>setTab('journal')}><BookHeart/><span>日记</span></button><button className={tab==='dates'?'active':''} onClick={()=>setTab('dates')}><CalendarDays/><span>纪念日</span></button><button className={tab==='chat'?'active':''} onClick={()=>setTab('chat')}><MessageCircle/><span>聊天</span></button></nav></div>;
 }
 
 function Setup(){return <main className="auth-shell"><div className="brand-mark"><Heart fill="currentColor"/><span>BETWEEN</span></div><section className="auth-card"><p className="eyebrow">FIRST-TIME SETUP</p><h1>再连上云端，就能一起使用了。</h1><p className="muted">当前是可运行的前端项目。要启用两部手机之间的真实账号和数据同步，需要先创建 Supabase 项目，并配置环境变量。</p><ol className="setup-list"><li>在 Supabase 创建一个免费项目。</li><li>复制 Project URL 和 anon/publishable key。</li><li>复制项目里的 <code>.env.example</code> 为 <code>.env.local</code>，填入这两项。</li><li>在 Supabase SQL Editor 运行 <code>supabase/schema.sql</code>。</li><li>运行 <code>npm install</code> 和 <code>npm run dev</code>。</li></ol><p className="notice">安全提醒：不要把 service_role 密钥放进前端，也不要把自己的密钥发到公开页面。</p></section></main>}
