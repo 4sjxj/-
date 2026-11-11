@@ -1,0 +1,10 @@
+{
+  "name": "Between · 之间",
+  "short_name": "Between",
+  "description": "两个人的专属小世界",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f3ef",
+  "theme_color": "#f8f3ef",
+  "icons": []
+}
